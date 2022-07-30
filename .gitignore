@@ -1,2 +1,12 @@
 bin
 obj
+
+/packages/*
+!/packages/.gitkeep
+
+/runtime/*
+!/runtime/.gitkeep
+
+/tools/*
+!/tools/.gitkeep
+!/tools/Nuget.template.config
