@@ -5,6 +5,9 @@
     <WasmMainJSPath>main.mjs</WasmMainJSPath>
     <OutputType>Exe</OutputType>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- return: JSMarshalAs とかがこれ使わないと動かない -->
+    <!-- https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-10.0/generic-attributes -->
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

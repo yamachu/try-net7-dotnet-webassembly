@@ -16,4 +16,18 @@ public partial class MyClass
 
     [JSImport("node.process.version")]
     internal static partial string GetNodeVersion();
+
+    [JSExport]
+    [return: JSMarshalAs<JSType.Function<JSType.String>>]
+    internal static Func<string> GreetingFn()
+    {
+        var text = $"Hello, World! Greetings from node version: {GetNodeVersion()}";
+        return () => text;
+    }
+
+    [JSExport]
+    internal static void DoFunc([JSMarshalAs<JSType.Function<JSType.String>>] Action<string> jsFunc)
+    {
+        jsFunc.Invoke("Is C#");
+    }
 }
