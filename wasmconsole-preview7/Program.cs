@@ -8,7 +8,7 @@ public static partial class SampleClass
     [JSExport]
     internal static string CallFromJS()
     {
-        return "Hello, World!";
+        return $"Hello, World! {GetNodeVersion()}";
     }
 
     [JSExport]
@@ -16,4 +16,7 @@ public static partial class SampleClass
     {
         return number + 42;
     }
+
+    [JSImport("node.process.version")]
+    internal static partial string GetNodeVersion();
 }
