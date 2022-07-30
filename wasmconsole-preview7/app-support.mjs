@@ -112,7 +112,10 @@ function mergeArguments() {
 }
 
 let toAbsoluteUrl = function (path, prefix) {
-    if (prefix.startsWith("/")) {
+    if (prefix?.startsWith("/")) {
+        return path;
+    }
+    if (prefix === undefined) {
         return path;
     }
     return prefix + path;
