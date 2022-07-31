@@ -10,3 +10,4 @@ obj
 /tools/*
 !/tools/.gitkeep
 !/tools/Nuget.template.config
+!/tools/Dockerfile
