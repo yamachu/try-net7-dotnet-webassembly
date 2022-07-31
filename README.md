@@ -2,6 +2,7 @@
 
 C100にて頒布予定の技術同人誌の内容を簡単に試せるようにするリポジトリ
 
+https://www.youtube.com/watch?v=3o91I6lD-Bo で .NET WebAssembly without Blazor UI として紹介されていた、
 https://github.com/dotnet/runtime で開発が行われている [wasm](https://github.com/dotnet/runtime/tree/main/src/mono/wasm) に関する技術を各リリースだったり、大幅な機能追加のタイミングで試せるようにする予定
 
 ## Directory structure
