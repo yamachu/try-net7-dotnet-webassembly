@@ -6,8 +6,11 @@ obj
 
 /runtime/*
 !/runtime/.gitkeep
+!/runtime/latest
 
 /tools/*
 !/tools/.gitkeep
 !/tools/Nuget.template.config
 !/tools/Dockerfile
+
+try-net7-dotnet-webassembly.code-workspace

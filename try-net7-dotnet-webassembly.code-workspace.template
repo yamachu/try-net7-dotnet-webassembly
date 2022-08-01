@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "wasmconsole-preview6"
+		},
+		{
+			"path": "wasmconsole-preview7"
+		},
+		{
+			"path": "wasmconsole-9481422"
+		}
+	],
+	"settings": {
+		"omnisharp.dotnetPath": "<!-- CWD -->/runtime/latest"
+	}
+}
