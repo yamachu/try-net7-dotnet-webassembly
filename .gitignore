@@ -13,4 +13,7 @@ obj
 !/tools/Nuget.template.config
 !/tools/Dockerfile
 
+/nightly/*
+!/nightly/.gitkeep
+
 try-net7-dotnet-webassembly.code-workspace

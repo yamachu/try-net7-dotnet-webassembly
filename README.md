@@ -19,14 +19,39 @@ https://github.com/dotnet/runtime で開発が行われている [wasm](https://
   - ${shorthash or release}
     - 環境を分離するために dotnet-install scripts でダウンロードした.NET SDKを配置する箇所
     - ex: preview7
+  - nightly
+    - nightlyなパッケージをインストールする砂場
 - packages
   - ${shorthash or release}
     - dotnet/runtime をビルドして得られた artifacts/packages/Release/Shipping 以下を展開する場所
     - ex: preview7/*.nupkg
+- nightly
+  - runtime
+    - dotnet/runtime リポジトリのclone先
 
 ## How to try
 
+### Easy (Recommended)
+
+#### Docker
+
+- tools/Dockerfileを使ってBuild
+
+or 
+
+- Docker HubからPull
+  - https://hub.docker.com/r/yamachu/dotnet-wasm-tools
+
+#### Use pre-built packages
+
+```sh
+# 初期インストール
+$ make dotnet7/nightly nightly/install/template
+# 試し終わったらTemplate削除した方が良い
+$ make dotnet7/uninstall/template/nightly
+```
+
+### Hard
+
 1. https://github.com/dotnet/runtime/tree/main/docs/workflow/requirements を見て環境構築する
 2. dotnet/runtime をビルドする
-
-は大変なので、Dockerfileを使用しビルドするか、Docker Hubで配布しているImageを使用しビルドする
