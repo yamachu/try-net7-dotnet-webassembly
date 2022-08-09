@@ -1,0 +1,7 @@
+{
+    "files.exclude": {
+        "nightly/**": true,
+        "packages/**": true,
+        "runtime/**": true
+    }
+}
