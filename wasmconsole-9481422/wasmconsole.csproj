@@ -8,9 +8,15 @@
     <!-- return: JSMarshalAs とかがこれ使わないと動かない -->
     <!-- https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-10.0/generic-attributes -->
     <LangVersion>preview</LangVersion>
+    <JSPortOverrideTypeDefinitionOutputDir>/Users/yk-yamada/Projects/github.com/yamachu/try-net7-dotnet-webassembly/wasmconsole-9481422/types</JSPortOverrideTypeDefinitionOutputDir>
   </PropertyGroup>
 
   <ItemGroup>
     <WasmExtraFilesToDeploy Include="app-support.mjs" />
+    <ProjectReference Include="../NetWebAssemblyTSTypeGenerator/NetWebAssemblyTSTypeGenerator.csproj"
+                      OutputItemType="Analyzer"
+                      ReferenceOutputAssembly="false" />
+    <!-- https://github.com/dotnet/roslyn/blob/main/docs/features/source-generators.cookbook.md#consume-msbuild-properties-and-metadata -->
+    <CompilerVisibleProperty Include="JSPortOverrideTypeDefinitionOutputDir" />
   </ItemGroup>
 </Project>
