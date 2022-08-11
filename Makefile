@@ -34,7 +34,7 @@ dotnet7/install/workload:
 	$(RUNTIME_DEST)/dotnet workload install --skip-manifest-update --no-cache --configfile tools/Nuget.$(VERSION).config wasm-tools
 
 dotnet7/install/workload/nightly:
-	$(RUNTIME_DEST)/dotnet workload install --skip-manifest-update --no-cache wasm-tools -s https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet7/nuget/v3/index.json
+	$(RUNTIME_DEST)/dotnet workload install --no-cache wasm-tools -s https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet7/nuget/v3/index.json
 
 nightly/runtime:
 	git clone --single-branch --branch main https://github.com/dotnet/runtime.git nightly/runtime
