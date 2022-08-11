@@ -1,4 +1,5 @@
 import { App } from "./app-support.mjs";
+import { ExportHelper } from "@microsoft/dotnet-runtime";
 
 App.main = async function (applicationArguments) {
     App.IMPORTS.node = {
@@ -7,7 +8,9 @@ App.main = async function (applicationArguments) {
         },
     };
 
-    const exports = await App.MONO.mono_wasm_get_assembly_exports("wasmconsole.dll");
+    const exportsFunc: ExportHelper = await App.MONO.mono_wasm_get_assembly_exports;
+    const exports = await exportsFunc("wasmconsole.dll");
+
     const text = exports.MyClass.Greeting();
     console.log(text);
 
