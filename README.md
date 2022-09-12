@@ -55,3 +55,36 @@ $ make dotnet7/uninstall/template/nightly
 
 1. https://github.com/dotnet/runtime/tree/main/docs/workflow/requirements を見て環境構築する
 2. dotnet/runtime をビルドする
+
+### memo
+
+```sh
+$ cat ./nightly/runtime/.git/config
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = https://github.com/dotnet/runtime.git
+	fetch = +refs/heads/main:refs/remotes/origin/main
+	fetch = +refs/heads/release/7.0*:refs/remotes/origin/release/7.0*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+```
+
+package.json
+```json
+{
+  "dependencies": {
+    "@microsoft/dotnet-runtime": "link:./bin/Debug/net7.0/browser-wasm"
+  }
+}
+```
+
+```sh
+$ runtime/nightly/dotnet new wasmconsole -n wasmconsole-nightly
+```

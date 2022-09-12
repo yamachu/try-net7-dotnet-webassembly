@@ -15,6 +15,7 @@ _dotnet7/clean:
 dotnet7: tools/dotnet-install.sh
 	$< -i $(RUNTIME_DEST) -v latest -q daily --channel 7.0
 
+# 1st 基本的にはこれを叩くと良い
 dotnet7/nightly:
 	$(MAKE) _dotnet7/clean dotnet7 dotnet7/install/workload/nightly RUNTIME_DEST=$(NIGHTLY)
 
@@ -40,9 +41,10 @@ nightly/runtime:
 	git clone --single-branch --branch main https://github.com/dotnet/runtime.git nightly/runtime
 
 nightly/runtime/checkout: nightly/runtime
-	cd nightly/runtime; git fetch -n -p origin main
+	cd nightly/runtime; git fetch -n -p origin
 	cd nightly/runtime; git checkout $(NIGHTLY_COMMIT)
 
+# 2nd 基本的にはこれを叩くと良い
 nightly/install/template:
 	$(MAKE) nightly/runtime/checkout NIGHTLY_COMMIT=$$(cat runtime/nightly/packs/Microsoft.NETCore.App.Runtime.Mono.browser-wasm/*/Microsoft.NETCore.App.versions.txt | head -n 1)
 	$(MAKE) dotnet7/install/template/nightly RUNTIME_DEST=$(NIGHTLY)
